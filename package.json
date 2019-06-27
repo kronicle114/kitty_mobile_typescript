@@ -21,6 +21,10 @@
     "@types/react-native": "^0.57.64",
     "babel-preset-expo": "^5.1.1",
     "react-native-typescript-transformer": "^1.2.12",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.2"
   },
   "private": true

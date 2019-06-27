@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         height: 20
       }
 })
-
 class Button extends React.Component<Props> {
     render() {
         const { label, onPress } = this.props

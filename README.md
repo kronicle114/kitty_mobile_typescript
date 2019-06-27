@@ -1,20 +1,61 @@
 # expo-cli blank template
 
+- [client repo](https://github.com/kronicle114/kitty_mobile_typescript)
+- [server repo](#)
+
 ## tech stack
+- **front-end:** 
+    - [react](https://reactjs.org)
+    - [react-native](https://facebook.github.io/react-native/)
+    - [typescript](https://www.typescriptlang.org/)
+- **back-end:**
+    - [mongodb](https://www.mongodb.com/)
+- **dev tools**
+    - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
 
-_front-end:_ react-native
-_back-end:_
+## Basics
+- [x] Frontend setup 
+    - [x] react-native basics
+    - [x] typescript
+    - [x] version control (git/github)
+- [] Backend setup
+    - [] mongodb
+    - [] boiler NODE/Express
+    - [] fetch & CRUD REST API
+- [] connect backend to frontend
+    - [] render data from server to client
+- [] deploy ios 
+- [] props & state
+- [] redux
+- [] basic testing
 
-## to-do
-
-- mongodb
-- connect backend to frontend
-- deploy
-- props & state
+## Front-end 
 - styles
 - navbar
 - gestures
-- login
-- register
-- auth & persist
-- CRUD
+
+## Features/User Story
+- User should be able to register with form validation
+- User should be able to login using persisting auth
+- User should be able to logout and login with data persisting
+- User should be able to add, edit, delete cat cards
+- There should be loading screens/images when an action is performed 
+- There should be basic navbar
+- User should be able to search a particular cat
+
+## v2
+- Advanced filter (with tags)
+- websocket (chat support)
+- notifications (in app & email)
+- upload pdf, other doc support
+- connect stripe
+
+
+## Resources
+
+- [Blank Template YouTube](https://www.youtube.com/watch?v=gYN0Rn0BhQI&feature=youtu.be)
+- [Using TypeScript with React Native · React Native](https://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native)
+- [The Starter App, Part 1: Project Setup - Matteo Mazzarolo - Medium](https://medium.com/@mmazzarolo/the-starter-app-part-1-project-setup-9b1579a8efa9)
+- [Login Screen w/ Typescript Tutorial](https://medium.com/@mmazzarolo/the-starter-app-part-2-login-screen-ui-2937e9a9083b)
+- [Configure Typescript](https://medium.com/@sgroff04/configure-typescript-tslint-and-prettier-in-vs-code-for-react-native-development-7f31f0068d2)
+- [Markdown Guide](https://guides.github.com/features/mastering-markdown/)

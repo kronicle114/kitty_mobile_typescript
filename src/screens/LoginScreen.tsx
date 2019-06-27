@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, Text, View, Image, Alert } from 'react-native'
+import { KeyboardAvoidingView, StyleSheet, Text, View, Image, Alert } from 'react-native'
 import Button from '../components/Button'
 import FormTextInput from '../components/FormTextInput'
 import colors from '../configs/colors'
@@ -45,7 +45,7 @@ class LoginScreen extends React.Component<{}> {
 
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding">
                 <Text>{strings.WELCOME}</Text>
                 <Image 
                     source={{
@@ -67,7 +67,7 @@ class LoginScreen extends React.Component<{}> {
                     label={strings.LOGIN} 
                     onPress={this.handleLoginPress} 
                 />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
