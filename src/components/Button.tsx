@@ -9,7 +9,7 @@ interface Props {
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%",
+        width: "80%",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: colors.ORANGE,

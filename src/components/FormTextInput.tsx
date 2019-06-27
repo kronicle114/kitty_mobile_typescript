@@ -4,10 +4,11 @@ import colors from "../configs/colors";
 
 const styles = StyleSheet.create({
     textInput: {
-      height: 40,
-      borderColor: colors.BLACK,
-      borderBottomWidth: StyleSheet.hairlineWidth,
-      marginBottom: 20
+        width: "80%",
+        height: 40,
+        borderColor: colors.BLACK,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        marginBottom: 20
     }
   });
 
