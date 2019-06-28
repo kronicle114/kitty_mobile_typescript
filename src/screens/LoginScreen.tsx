@@ -25,6 +25,8 @@ const styles = StyleSheet.create({
 });
 
 class LoginScreen extends React.Component<{}> {
+    passwordInputRef = React.createRef<FormTextInput>()
+
     readonly state: State = {
         email: '',
         password: ''
@@ -36,6 +38,12 @@ class LoginScreen extends React.Component<{}> {
 
     handlePasswordChange = (password: string) => {
         this.setState({password: password})
+    }
+    
+    handleEmailSubmitPress = () => {
+        if(this.passwordInputRef.current){
+            this.passwordInputRef.current.focus()
+        }
     }
 
     handleLoginPress = () => {
@@ -56,7 +64,11 @@ class LoginScreen extends React.Component<{}> {
                 <FormTextInput
                     value={this.state.email}
                     onChangeText={this.handleEmailChange}
-                    placeholder={strings.EMAIL_PLACEHOLDER}  
+                    placeholder={strings.EMAIL_PLACEHOLDER} 
+                    onSubmitEditing={this.handleEmailSubmitPress}
+                    autoCorrect={false}
+                    keyboardType="email-address"
+                    returnKeyType="next" 
                 />
                 <FormTextInput
                     value={this.state.password}

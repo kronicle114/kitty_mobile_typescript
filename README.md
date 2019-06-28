@@ -4,52 +4,56 @@
 - [server repo](#)
 
 ## tech stack
-- **front-end:** 
-    - [react](https://reactjs.org)
-    - [react-native](https://facebook.github.io/react-native/)
-    - [typescript](https://www.typescriptlang.org/)
+
+- **front-end:**
+  - [react](https://reactjs.org)
+  - [react-native](https://facebook.github.io/react-native/)
+  - [typescript](https://www.typescriptlang.org/)
 - **back-end:**
-    - [mongodb](https://www.mongodb.com/)
+  - [mongodb](https://www.mongodb.com/)
 - **dev tools**
-    - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
+  - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
 
 ## Basics
-- [x] Frontend setup 
-    - [x] react-native basics
-    - [x] typescript
-    - [x] version control (git/github)
+
+- [x] Frontend setup
+  - [x] react-native basics
+  - [x] typescript
+  - [x] version control (git/github)
 - [] Backend setup
-    - [] mongodb
-    - [] boiler NODE/Express
-    - [] fetch & CRUD REST API
+  - [] mongodb
+  - [] boiler NODE/Express
+  - [] fetch & CRUD REST API
 - [] connect backend to frontend
-    - [] render data from server to client
-- [] deploy ios 
+  - [] render data from server to client
+- [] deploy ios
 - [] props & state
 - [] redux
 - [] basic testing
 
-## Front-end 
+## Front-end
+
 - styles
 - navbar
 - gestures
 
 ## Features/User Story
+
 - User should be able to register with form validation
 - User should be able to login using persisting auth
 - User should be able to logout and login with data persisting
 - User should be able to add, edit, delete cat cards
-- There should be loading screens/images when an action is performed 
+- There should be loading screens/images when an action is performed
 - There should be basic navbar
 - User should be able to search a particular cat
 
 ## v2
+
 - Advanced filter (with tags)
 - websocket (chat support)
 - notifications (in app & email)
 - upload pdf, other doc support
 - connect stripe
-
 
 ## Resources
 
