@@ -1,7 +1,7 @@
 # expo-cli blank template
 
 - [client repo](https://github.com/kronicle114/kitty_mobile_typescript)
-- [server repo](#)
+- [server repo](https://github.com/kronicle114/kitty_mobile_server)
 
 ## tech stack
 
@@ -21,15 +21,19 @@
   - [x] typescript
   - [x] version control (git/github)
 - [] Backend setup
-  - [] mongodb
-  - [] boiler NODE/Express
-  - [] fetch & CRUD REST API
+  - [x] mongodb
+  - [x] boiler NODE/Express
+  - [x] user models & auth
+    - [x] test this biatch
+  - [] CRUD REST API
+    - [] start w/ post & get cats
+    - [] prob want a models for that
 - [] connect backend to frontend
   - [] render data from server to client
 - [] deploy ios
 - [] props & state
 - [] redux
-- [] basic testing
+- [] basic testing ( on the frontend, cus i assume ur a good girl and you're doing validation/error handlers on backend as you write)
 
 ## Front-end
 
