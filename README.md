@@ -67,3 +67,17 @@
 - [Login Screen w/ Typescript Tutorial](https://medium.com/@mmazzarolo/the-starter-app-part-2-login-screen-ui-2937e9a9083b)
 - [Configure Typescript](https://medium.com/@sgroff04/configure-typescript-tslint-and-prettier-in-vs-code-for-react-native-development-7f31f0068d2)
 - [Markdown Guide](https://guides.github.com/features/mastering-markdown/)
+
+## debug
+
+- 4 jul 19 || ERROR on `npm install axios` fixed by getting access on npm directory `sudo chown -R <whoami> ~/.npm`
+
+```bash
+npm ERR! path /Users/trisha/.npm/_cacache/index-v5/d5/82/283d353be571fd3a81096d7e8fa03e8fe25ad7cbf9370dbcca196d4f709b
+npm ERR! code EACCES
+npm ERR! errno -13
+npm ERR! syscall open
+npm ERR! Error: EACCES: permission denied, open '/Users/trisha/.npm/_cacache/index-v5/d5/82/283d353be571fd3a81096d7e8fa03e8fe25ad7cbf9370dbcca196d4f709b'
+```
+
+- 4 jul 19 || network error

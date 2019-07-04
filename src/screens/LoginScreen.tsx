@@ -1,4 +1,5 @@
 import * as React from 'react'
+// import axios from "axios";
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -33,20 +34,17 @@ const styles = StyleSheet.create({
   },
 })
 
-class LoginScreen extends React.Component<{}> {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = { isLoading: true }
-  // }
+const something = ''
 
-  // componentDidMount() {
-  //   return fetch(`${DATABASE_URL}/cheeses`)
-  //     .then(response => {
-  //       console.log('got here')
-  //       response.json()
-  //     })
+class LoginScreen extends React.Component<{}> {
+  // componentWillMount() {
+  //   fetch(`${API_BASE_URL}/cheeses`, {
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  //   })
+  //     .then(response => response.json())
   //     .then(responseJson => {
-  //       console.log('here', responseJson)
+  //       // console.log(responseJson)
   //       return responseJson
   //     })
   //     .catch(error => {
@@ -81,13 +79,6 @@ class LoginScreen extends React.Component<{}> {
   }
 
   render() {
-    // if (this.state.isLoading) {
-    //   return (
-    //     <View style={{ flex: 1, padding: 20 }}>
-    //       <ActivityIndicator />
-    //     </View>
-    //   )
-    // }
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding">
         <Text>{strings.WELCOME}</Text>
