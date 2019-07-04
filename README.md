@@ -1,10 +1,8 @@
 # expo-cli blank template
-
 - [client repo](https://github.com/kronicle114/kitty_mobile_typescript)
 - [server repo](https://github.com/kronicle114/kitty_mobile_server)
 
 ## tech stack
-
 - **front-end:**
   - [react](https://reactjs.org)
   - [react-native](https://facebook.github.io/react-native/)
@@ -16,33 +14,35 @@
 
 ## Basics
 
-- [x] Frontend setup
+### Frontend setup
   - [x] react-native basics
   - [x] typescript
   - [x] version control (git/github)
-- [] Backend setup
+
+### Backend setup
   - [x] mongodb
   - [x] boiler NODE/Express
   - [x] user models & auth
     - [x] test this biatch
   - [] CRUD REST API
-    - [] start w/ post & get cats
+    - [] start w/ POST & GET cats
     - [] prob want a models for that
-- [] connect backend to frontend
-  - [] render data from server to client
+- [x] connect backend to frontend
+  - [x] render data from server to client
 - [] deploy ios
 - [] props & state
 - [] redux
-- [] basic testing ( on the frontend, cus i assume ur a good girl and you're doing validation/error handlers on backend as you write)
+
+### Testing
+- [] front-end next, catch, input validations
+- [] backend user validations, duplicates on unique documents, error handlers 
 
 ## Front-end
-
 - styles
 - navbar
 - gestures
 
 ## Features/User Story
-
 - User should be able to register with form validation
 - User should be able to login using persisting auth
 - User should be able to logout and login with data persisting
@@ -52,7 +52,6 @@
 - User should be able to search a particular cat
 
 ## v2
-
 - Advanced filter (with tags)
 - websocket (chat support)
 - notifications (in app & email)
@@ -60,7 +59,6 @@
 - connect stripe
 
 ## Resources
-
 - [Blank Template YouTube](https://www.youtube.com/watch?v=gYN0Rn0BhQI&feature=youtu.be)
 - [Using TypeScript with React Native · React Native](https://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native)
 - [The Starter App, Part 1: Project Setup - Matteo Mazzarolo - Medium](https://medium.com/@mmazzarolo/the-starter-app-part-1-project-setup-9b1579a8efa9)
@@ -69,7 +67,6 @@
 - [Markdown Guide](https://guides.github.com/features/mastering-markdown/)
 
 ## debug
-
 - 4 jul 19 || ERROR on `npm install axios` fixed by getting access on npm directory `sudo chown -R <whoami> ~/.npm`
 
 ```bash
@@ -81,5 +78,4 @@ npm ERR! Error: EACCES: permission denied, open '/Users/trisha/.npm/_cacache/ind
 ```
 
 - 4 jul 19 || 'Network Request Failed` Error fixed follow steps I wrote [here](https://stackoverflow.com/a/56892222/10219601)
-
 - 4 jul 19 || [cannot use dotenv](https://github.com/motdotla/dotenv/issues/268) fixed via medium article I wrote [here]()
