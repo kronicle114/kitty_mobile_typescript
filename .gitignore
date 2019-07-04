@@ -1,9 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+.env
 .vscode
 .eslintrc.js
 .watchmanconfig
-
 
 # OSX
 .DS_Store
@@ -55,7 +54,6 @@ android/keystores/debug.keystore
 
 # misc
 .DS_Store
-.env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
