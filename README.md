@@ -80,4 +80,4 @@ npm ERR! syscall open
 npm ERR! Error: EACCES: permission denied, open '/Users/trisha/.npm/_cacache/index-v5/d5/82/283d353be571fd3a81096d7e8fa03e8fe25ad7cbf9370dbcca196d4f709b'
 ```
 
-- 4 jul 19 || network error
+- 4 jul 19 || 'Network Request Failed` Error fixed follow steps I wrote [here](https://stackoverflow.com/a/56892222/10219601)

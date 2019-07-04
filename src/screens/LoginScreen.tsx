@@ -1,13 +1,10 @@
 import * as React from 'react'
-// import axios from "axios";
 import {
   KeyboardAvoidingView,
   StyleSheet,
   Text,
   Image,
   Alert,
-  ActivityIndicator,
-  View,
 } from 'react-native'
 import Button from '../components/Button'
 import FormTextInput from '../components/FormTextInput'
@@ -34,24 +31,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const something = ''
-
 class LoginScreen extends React.Component<{}> {
-  // componentWillMount() {
-  //   fetch(`${API_BASE_URL}/cheeses`, {
-  //     method: 'GET',
-  //     headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  //   })
-  //     .then(response => response.json())
-  //     .then(responseJson => {
-  //       // console.log(responseJson)
-  //       return responseJson
-  //     })
-  //     .catch(error => {
-  //       console.error(error)
-  //     })
-  // }
-
   passwordInputRef = React.createRef<FormTextInput>()
 
   readonly state: State = {
@@ -75,7 +55,49 @@ class LoginScreen extends React.Component<{}> {
 
   handleLoginPress = () => {
     console.log('pressed login meow')
-    Alert.alert('meowww')
+
+    async function hitMyApiPls() {
+      try {
+        // let response = await fetch(`http://209.6.178.89:8085/api/get-cats`)
+        // let response = await fetch('https://localhost:8085/api/get-cats')
+        let response = await fetch(`${API_BASE_URL}/api/get-cats`)
+        let responseJson = await response.json()
+        console.log('res: ', responseJson)
+        return responseJson
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    hitMyApiPls()
+  }
+
+  handleMysteryPress = () => {
+    async function getSkywalkerfromApi() {
+      try {
+        let response = await fetch(`https://swapi.co/api/people/1`)
+        let responseJson = await response.json()
+        console.log('res: ', responseJson)
+        Alert.alert(responseJson.name)
+        return responseJson
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getSkywalkerfromApi()
+  }
+
+  handleCatImg = () => {
+    async function getCat() {
+      try {
+        let response = await fetch(`https://api.thecatapi.com/v1/images/search`)
+        let responseJson = await response.json()
+        Alert.alert(responseJson[0].url)
+        return responseJson
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getCat()
   }
 
   render() {
@@ -104,6 +126,8 @@ class LoginScreen extends React.Component<{}> {
           placeholder={strings.PASSWORD_PLACEHOLDER}
         />
         <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
+        <Button label={'???'} onPress={this.handleMysteryPress} />
+        <Button label={'serve cat'} onPress={this.handleCatImg} />
       </KeyboardAvoidingView>
     )
   }
