@@ -81,3 +81,5 @@ npm ERR! Error: EACCES: permission denied, open '/Users/trisha/.npm/_cacache/ind
 ```
 
 - 4 jul 19 || 'Network Request Failed` Error fixed follow steps I wrote [here](https://stackoverflow.com/a/56892222/10219601)
+
+- 4 jul 19 || [cannot use dotenv](https://github.com/motdotla/dotenv/issues/268) fixed via medium article I wrote [here]()
