@@ -41,11 +41,11 @@ class LoginScreen extends React.Component<{}> {
   }
 
   handleEmailChange = (email: string) => {
-    this.setState({ email })
+    this.setState({ email: email })
   }
 
   handlePasswordChange = (password: string) => {
-    this.setState({ password })
+    this.setState({ password: password })
   }
 
   handleEmailSubmitPress = () => {
