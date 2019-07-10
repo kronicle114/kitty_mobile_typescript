@@ -3,7 +3,7 @@
   "devToolsPort": 19002,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://ah-uue.kronicle114.kitty.exp.direct",
-  "packagerNgrokUrl": "https://packager.ah-uue.kronicle114.kitty.exp.direct",
-  "ngrokPid": 61821
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

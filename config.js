@@ -10,3 +10,4 @@ module.exports = {
   JWT_EXPIRY: JWT_EXPIRY,
   API_BASE_URL: `http://${DEVICE_IP}:8085`,
 }
+
