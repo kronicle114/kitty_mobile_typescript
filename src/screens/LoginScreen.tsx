@@ -8,9 +8,10 @@ import {
 } from 'react-native'
 import Button from '../components/Button'
 import FormTextInput from '../components/FormTextInput'
+import DismissKeyboardView from '../components/DismissKeyboardView'
 import colors from '../configs/colors'
 import strings from '../configs/strings'
-import { API_BASE_URL, DATABASE_URL } from '../../config.js'
+import { API_BASE_URL } from '../../config.js'
 
 interface State {
   email: string
@@ -40,11 +41,11 @@ class LoginScreen extends React.Component<{}> {
   }
 
   handleEmailChange = (email: string) => {
-    this.setState({ email: email })
+    this.setState({ email })
   }
 
   handlePasswordChange = (password: string) => {
-    this.setState({ password: password })
+    this.setState({ password })
   }
 
   handleEmailSubmitPress = () => {
@@ -102,33 +103,37 @@ class LoginScreen extends React.Component<{}> {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <Text>{strings.WELCOME}</Text>
-        <Image
-          source={{
-            uri:
-              'https://alphapixelreach.com/wp-content/uploads/2017/08/7399-cat-face.png',
-          }}
-          style={{ width: 200, height: 200 }}
-        />
-        <FormTextInput
-          value={this.state.email}
-          onChangeText={this.handleEmailChange}
-          placeholder={strings.EMAIL_PLACEHOLDER}
-          onSubmitEditing={this.handleEmailSubmitPress}
-          autoCorrect={false}
-          keyboardType="email-address"
-          returnKeyType="next"
-        />
-        <FormTextInput
-          value={this.state.password}
-          onChangeText={this.handlePasswordChange}
-          placeholder={strings.PASSWORD_PLACEHOLDER}
-        />
-        <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
-        <Button label={'???'} onPress={this.handleMysteryPress} />
-        <Button label={'serve cat'} onPress={this.handleCatImg} />
-      </KeyboardAvoidingView>
+      <DismissKeyboardView
+        containerStyles={{ backgroundColor: 'rgb(50,72,105)' }}
+      >
+        <KeyboardAvoidingView style={styles.container} behavior="padding">
+          <Text>{strings.WELCOME}</Text>
+          <Image
+            source={{
+              uri:
+                'https://alphapixelreach.com/wp-content/uploads/2017/08/7399-cat-face.png',
+            }}
+            style={{ width: 200, height: 200 }}
+          />
+          <FormTextInput
+            value={this.state.email}
+            onChangeText={this.handleEmailChange}
+            placeholder={strings.EMAIL_PLACEHOLDER}
+            onSubmitEditing={this.handleEmailSubmitPress}
+            autoCorrect={false}
+            keyboardType="email-address"
+            returnKeyType="next"
+          />
+          <FormTextInput
+            value={this.state.password}
+            onChangeText={this.handlePasswordChange}
+            placeholder={strings.PASSWORD_PLACEHOLDER}
+          />
+          <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
+          <Button label={'???'} onPress={this.handleMysteryPress} />
+          <Button label={'serve cat'} onPress={this.handleCatImg} />
+        </KeyboardAvoidingView>
+      </DismissKeyboardView>
     )
   }
 }
