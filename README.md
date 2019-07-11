@@ -8,6 +8,8 @@
   - [react-native](https://facebook.github.io/react-native/)
   - [typescript](https://www.typescriptlang.org/)
 - **back-end:**
+  - [node](https://nodejs.org/en/)
+  - [express](https://expressjs.com/)
   - [mongodb](https://www.mongodb.com/)
 - **dev tools**
   - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
@@ -23,12 +25,12 @@
   - [x] mongodb
   - [x] boiler NODE/Express
   - [x] user models & auth
-    - [x] test this biatch
   - [] CRUD REST API
-    - [] start w/ POST & GET cats
-    - [] prob want a models for that
+    - [x] start w/ POST & GET cats
+    - [x] prob want a models for that
 - [x] connect backend to frontend
   - [x] render data from server to client
+  - [] get a successful login using redux
 - [] deploy ios
 - [] props & state
 - [] redux
