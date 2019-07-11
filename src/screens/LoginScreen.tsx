@@ -12,6 +12,11 @@ import DismissKeyboardView from '../components/DismissKeyboardView'
 import colors from '../configs/colors'
 import strings from '../configs/strings'
 import { API_BASE_URL } from '../../config.js'
+import { login } from '../actions/auth'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+// import { required, nonEmpty } from '../validators'
 
 interface State {
   email: string
@@ -54,13 +59,17 @@ class LoginScreen extends React.Component<{}> {
     }
   }
 
+  // onSubmit(values) {
+  //   const { email, password } = this.state
+  //   const { actions } = this.props
+  //   return actions.login({ username: email, password })
+  // }
+
   handleLoginPress = () => {
     console.log('pressed login meow')
 
     async function hitMyApiPls() {
       try {
-        // let response = await fetch(`http://209.6.178.89:8085/api/get-cats`)
-        // let response = await fetch('https://localhost:8085/api/get-cats')
         let response = await fetch(`${API_BASE_URL}/api/get-cats`)
         let responseJson = await response.json()
         console.log('res: ', responseJson)
@@ -138,4 +147,20 @@ class LoginScreen extends React.Component<{}> {
   }
 }
 
-export default LoginScreen
+LoginScreen.propTypes = {
+  actions: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = ({ auth }) => ({
+  auth,
+  isFetching: auth.isFetching,
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ login }, dispatch),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginScreen)
