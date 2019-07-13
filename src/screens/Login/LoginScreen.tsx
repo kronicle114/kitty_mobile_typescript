@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -12,6 +12,7 @@ import DismissKeyboardView from '../../components/DismissKeyboardView'
 import colors from '../../configs/colors'
 import strings from '../../configs/strings'
 import { API_BASE_URL } from '../../../config'
+import { NavigationScreenProps } from 'react-navigation'
 
 interface State {
   email: string
@@ -32,7 +33,11 @@ const styles = StyleSheet.create({
   },
 })
 
-class LoginScreen extends React.Component<{}> {
+class LoginScreen extends Component<NavigationScreenProps> {
+  static navigationOptions = {
+    header: null,
+  }
+
   passwordInputRef = React.createRef<FormTextInput>()
 
   readonly state: State = {
@@ -130,8 +135,18 @@ class LoginScreen extends React.Component<{}> {
             placeholder={strings.PASSWORD_PLACEHOLDER}
           />
           <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
-          <Button label={'???'} onPress={this.handleMysteryPress} />
-          <Button label={'serve cat'} onPress={this.handleCatImg} />
+          {/* <Button label={'???'} onPress={this.handleMysteryPress} />
+          <Button label={'serve cat'} onPress={this.handleCatImg} /> */}
+          <Button
+            label={strings.FORGOT_PW}
+            onPress={() =>
+              this.props.navigation.navigate('PasswordResetScreen')
+            }
+          />
+          <Button
+            label={strings.BACK_TO_LOGIN}
+            onPress={() => this.props.navigation.navigate('HomeScreen')}
+          />
         </KeyboardAvoidingView>
       </DismissKeyboardView>
     )

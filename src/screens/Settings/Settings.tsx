@@ -1,16 +1,23 @@
 import styles from './styles'
+import strings from '../../configs/strings'
 import React, { Component } from 'react'
 import { Platform, View, Text } from 'react-native'
 import Button from '../../components/Button'
-import strings from '../../configs/strings'
 import { Icon } from 'react-native-elements'
 import { NavigationScreenProps } from 'react-navigation'
 
 class SettingsScreen extends Component {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
-    headerTitle: 'Screen',
+    headerTitle: strings.SETTINGS_TAB_TITLE,
     headerLeft: Platform.select({
-      ios: null,
+      ios: (
+        <Icon
+          name="ios-log-out"
+          type="ionicon"
+          containerStyle={styles.icon}
+          onPress={() => navigation.navigate('LoginScreen')}
+        />
+      ),
       android: (
         <Icon
           name="md-menu"
@@ -30,7 +37,7 @@ class SettingsScreen extends Component {
     return (
       <View style={styles.container}>
         <Text>This is the SettingsScreen.</Text>
-        <Button label={strings.LOGOUT} onPress={this.handleLogoutPress} />
+        {/* <Button label={strings.LOGOUT} onPress={this.handleLogoutPress} /> */}
       </View>
     )
   }

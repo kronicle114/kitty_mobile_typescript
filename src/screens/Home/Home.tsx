@@ -1,7 +1,8 @@
 import styles from './styles'
 import React, { Component } from 'react'
 import { Text, View, Platform } from 'react-native'
-import { Button, Icon } from 'react-native-elements'
+import Button from '../../components/Button'
+import { Icon } from 'react-native-elements'
 import { NavigationScreenProps } from 'react-navigation'
 
 // using Buttons from react-native-elements due to navigate props
@@ -30,8 +31,8 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Text>This is the HomeScreen.</Text>
-        <Button title="Details" onPress={() => navigate('DetailScreen')} />
-        <Button title="Options" onPress={() => navigate('OptionsScreen')} />
+        <Button label="Details" onPress={() => navigate('DetailScreen')} />
+        <Button label="Options" onPress={() => navigate('OptionsScreen')} />
       </View>
     )
   }
