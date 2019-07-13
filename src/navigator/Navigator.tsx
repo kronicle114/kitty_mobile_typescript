@@ -1,3 +1,4 @@
+import React from 'react'
 import DetailScreen from '../screens/Detail'
 import HomeScreen from '../screens/Home'
 import OptionsScreen from '../screens/Options'
@@ -12,8 +13,10 @@ import {
   NavigationTransitionProps,
   TransitionConfig,
   createAppContainer,
+  TabScene,
 } from 'react-navigation'
 import { StackViewTransitionConfigs } from 'react-navigation'
+import { Icon } from 'react-native-elements'
 
 const IOS_MODAL_ROUTES = ['OptionsScreen']
 
@@ -38,25 +41,27 @@ const HomeStack = createStackNavigator(
   {
     HomeScreen: {
       screen: HomeScreen,
-      // navigationOptions: ({ navigation }) => ({
-      //   title: 'HomeScreeen',
-      // }),
     },
     DetailScreen: {
       screen: DetailScreen,
-      navigationOptions: ({ navigation }) => ({
-        title: 'DetailScreen',
-      }),
     },
     OptionsScreen: {
       screen: OptionsScreen,
-      navigationOptions: ({ navigation }) => ({
-        title: 'OptionsScreen',
-      }),
     },
   },
   { transitionConfig: dynamicModalTransition }
 )
+
+HomeStack.navigationOptions = {
+  tabBarLabel: 'Home',
+  tabBarIcon: ({ tintColor }: TabScene) => (
+    <Icon name="ios-home" type="ionicon" color={tintColor} />
+  ),
+  drawerLabel: 'Home',
+  drawerIcon: ({ tintColor }: TabScene) => (
+    <Icon name="md-home" type="ionicon" color={tintColor} />
+  ),
+}
 
 const SettingsStack = createStackNavigator({
   SettingsScreen: {
@@ -66,6 +71,17 @@ const SettingsStack = createStackNavigator({
     // }),
   },
 })
+
+SettingsStack.navigationOptions = {
+  tabBarLabel: 'Settings',
+  tabBarIcon: ({ tintColor }: TabScene) => (
+    <Icon name="ios-cog" type="ionicon" color={tintColor} />
+  ),
+  drawerLabel: 'Settings',
+  drawerIcon: ({ tintColor }: TabScene) => (
+    <Icon name="md-cog" type="ionicon" color={tintColor} />
+  ),
+}
 
 const MainNavigator = Platform.select({
   ios: createBottomTabNavigator({ HomeStack, SettingsStack }),
