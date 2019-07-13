@@ -5,13 +5,14 @@ import {
   Text,
   Image,
   Alert,
+  Settings,
 } from 'react-native'
-import Button from '../components/Button'
-import FormTextInput from '../components/FormTextInput'
-import DismissKeyboardView from '../components/DismissKeyboardView'
-import colors from '../configs/colors'
-import strings from '../configs/strings'
-import { API_BASE_URL } from '../../config.js'
+import Button from '../../components/Button'
+import FormTextInput from '../../components/FormTextInput'
+import DismissKeyboardView from '../../components/DismissKeyboardView'
+import colors from '../../configs/colors'
+import strings from '../../configs/strings'
+import { API_BASE_URL } from '../../../config'
 
 interface State {
   email: string
