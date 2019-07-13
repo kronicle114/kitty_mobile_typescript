@@ -1,3 +1,14 @@
-import LoginScreen from '../src/screens/Login'
+import React, { Component } from 'react'
+// import Orientation, { orientation } from 'react-native-orientation'
+import Navigator from './navigator/Navigator'
 
-export default LoginScreen
+interface Props {}
+export default class App extends Component<Props> {
+  //   componentDidMount = () => {
+  //     Orientation.lockToPortrait()
+  //   }
+
+  render() {
+    return <Navigator />
+  }
+}
