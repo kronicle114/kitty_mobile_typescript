@@ -2,13 +2,13 @@ const strings = {
   WELCOME: 'Kitty App',
   LOGIN: 'Login',
   LOGOUT: 'Logout',
-  EMAIL_PLACEHOLDER: 'email@meow.com',
+  USERNAME_PLACEHOLDER: 'Username',
   PASSWORD_PLACEHOLDER: 'Password123',
   HOME_TAB_TITLE: 'HomeTab',
   SETTINGS_TAB_TITLE: 'SettingsTab',
-  REGISTER_TITLE: 'register',
-  FORGOT_PW: 'forgot password',
-  BACK_TO_LOGIN: 'back to home',
+  REGISTER_TITLE: 'Register',
+  FORGOT_PW: 'Forgot Password',
+  BACK_TO_LOGIN: 'Back to Home',
 }
 
 export default strings

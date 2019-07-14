@@ -10,7 +10,7 @@ import FormTextInput from '../../components/FormTextInput'
 import Button from '../../components/Button'
 
 interface State {
-  email: string
+  username: string
   password: string
   confirmPassword: string
 }
@@ -31,13 +31,13 @@ class RegisterScreen extends Component<NavigationScreenProps> {
   confirmPasswordInputRef = React.createRef<FormTextInput>()
 
   readonly state: State = {
-    email: '',
+    username: '',
     password: '',
     confirmPassword: '',
   }
 
-  handleEmailChange = (email: string) => {
-    this.setState({ email: email })
+  handleUsernameChange = (username: string) => {
+    this.setState({ username: username })
   }
 
   handlePasswordChange = (password: string) => {
@@ -48,7 +48,7 @@ class RegisterScreen extends Component<NavigationScreenProps> {
     this.setState({ confirmPassword: confirmPassword })
   }
 
-  handleEmailSubmitPress = () => {
+  handleUsernameSubmitPress = () => {
     if (this.passwordInputRef.current) {
       this.passwordInputRef.current.focus()
     }
@@ -60,12 +60,12 @@ class RegisterScreen extends Component<NavigationScreenProps> {
         <KeyboardAvoidingView style={styles.container} behavior="padding">
           <Text>This is the RegisterScreen.</Text>
           <FormTextInput
-            value={this.state.email}
-            onChangeText={this.handleEmailChange}
-            placeholder={strings.EMAIL_PLACEHOLDER}
-            onSubmitEditing={this.handleEmailSubmitPress}
+            value={this.state.username}
+            onChangeText={this.handleUsernameChange}
+            placeholder={strings.USERNAME_PLACEHOLDER}
+            onSubmitEditing={this.handleUsernameSubmitPress}
             autoCorrect={false}
-            keyboardType="email-address"
+            keyboardType="default"
             returnKeyType="next"
           />
           <FormTextInput
