@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  icon: {
+    paddingLeft: 10,
+  },
 })
 
 export default styles

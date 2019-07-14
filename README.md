@@ -23,7 +23,9 @@
 - [x] react-native basics
 - [x] typescript
 - [x] version control (git/github)
-- [] navigation set up
+- [x] navigation set up
+- [] loader
+- [] hook up API actions (login, register)
 
 ### Backend setup
 
@@ -33,7 +35,7 @@
 - [] CRUD REST API
   - [x] start w/ POST & GET cats
   - [x] prob want a models for that
-- [x] connect backend to frontend
+- [] connect backend to frontend
   - [] render data from server to client
   - [] get a successful login using redux
 - [] deploy ios
@@ -94,3 +96,13 @@ npm ERR! Error: EACCES: permission denied, open '/Users/trisha/.npm/_cacache/ind
 
 - 4 jul 19 || 'Network Request Failed` Error fixed follow steps I wrote [here](https://stackoverflow.com/a/56892222/10219601)
 - 4 jul 19 || [cannot use dotenv](https://github.com/motdotla/dotenv/issues/268) fixed via medium article I wrote [here]()
+
+- 13 jul 19 || [Navigator Common Mistakes](https://reactnavigation.org/docs/en/common-mistakes.html)
+- 13 jul 19 || PENDING FIX DrawItemProps
+
+```
+Argument of type '{ contentComponent: ComponentType<Pick<NavigationInjectedProps<NavigationParams>, never> & { onRef?: ((instance: BurgerMenu | null) => void) | RefObject<BurgerMenu> | null | undefined; }>; }' is not assignable to parameter of type 'DrawerNavigatorConfig'.
+  Types of property 'contentComponent' are incompatible.
+    Type 'ComponentType<Pick<NavigationInjectedProps<NavigationParams>, never> & { onRef?: ((instance: BurgerMenu | null) => void) | RefObject<BurgerMenu> | null | undefined; }>' is not assignable to type 'ComponentClass<DrawerItemsProps, any> | FunctionComponent<DrawerItemsProps> | undefined'.
+      Type 'ComponentClass<Pick<NavigationInjectedProps<NavigationParams>, never> & { onRef?: ((instance: BurgerMenu | null) => void) | RefObject<BurgerMenu> | null | undefined; }, any>' is not assignable to type 'ComponentClass<DrawerItemsProps, any> | FunctionComponent<DrawerItemsProps> | undefined'.
+```
