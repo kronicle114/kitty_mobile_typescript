@@ -16,8 +16,23 @@
 - **dev tools**
   - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
 
-## Basics
+## dev instructions
+**Pre-reqs** 
+- Yarn 1.16.0
+- Npm 6.9.0
+- Node v10.16.0
+- Expo 2.20.2
 
+1. Clone both the server and client side of this app:
+* [Client](https://github.com/kronicle114/kitty_mobile_typescript.git) or `git clone https://github.com/kronicle114/kitty_mobile_typescript.git`
+* [Server](https://github.com/kronicle114/kitty_mobile_server.git) or `git clone https://github.com/kronicle114/kitty_mobile_server.git`
+2. `yarn install` the requirements on each of the repos
+3. Run `mongod` in a separate terminal shell. 
+4. Make sure you have expo-cli on your device or have an ios/android emulator
+5. Open a new terminal shell and then `cd` into the server side and run `npm start`. Do the same thing for the client side (`cd` into client side & `npm start`).
+6. If successful, the app should load into expo-cli. 
+
+## Basics
 ### Frontend setup
 
 - [x] react-native basics
