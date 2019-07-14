@@ -2,7 +2,7 @@ import strings from '../../configs/strings'
 import styles from './styles'
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
-import { Button } from 'react-native-elements'
+import Button from '../../components/Button'
 import { NavigationScreenProps } from 'react-navigation'
 
 class PasswordResetScreen extends Component<NavigationScreenProps> {
@@ -17,7 +17,7 @@ class PasswordResetScreen extends Component<NavigationScreenProps> {
           This is the PasswordResetScreen.
         </Text>
         <Button
-          title={strings.BACK_TO_LOGIN}
+          label={strings.BACK_TO_LOGIN}
           onPress={() => this.props.navigation.navigate('LoginScreen')}
         />
       </View>

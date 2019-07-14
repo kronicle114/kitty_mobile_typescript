@@ -61,14 +61,12 @@ class LoginScreen extends Component<NavigationScreenProps> {
 
   handleLoginPress = () => {
     console.log('pressed login meow')
-
+    console.log('api_base_url', API_BASE_URL)
     async function hitMyApiPls() {
       try {
-        // let response = await fetch(`http://209.6.178.89:8085/api/get-cats`)
-        // let response = await fetch('https://localhost:8085/api/get-cats')
-        let response = await fetch(`${API_BASE_URL}/api/get-cats`)
+        let response = await fetch(`${API_BASE_URL}/api/cats`)
         let responseJson = await response.json()
-        console.log('res: ', responseJson)
+        Alert.alert(responseJson)
         return responseJson
       } catch (error) {
         console.error(error)
@@ -77,40 +75,9 @@ class LoginScreen extends Component<NavigationScreenProps> {
     hitMyApiPls()
   }
 
-  handleMysteryPress = () => {
-    async function getSkywalkerfromApi() {
-      try {
-        let response = await fetch(`https://swapi.co/api/people/1`)
-        let responseJson = await response.json()
-        console.log('res: ', responseJson)
-        Alert.alert(responseJson.name)
-        return responseJson
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    getSkywalkerfromApi()
-  }
-
-  handleCatImg = () => {
-    async function getCat() {
-      try {
-        let response = await fetch(`https://api.thecatapi.com/v1/images/search`)
-        let responseJson = await response.json()
-        Alert.alert(responseJson[0].url)
-        return responseJson
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    getCat()
-  }
-
   render() {
     return (
-      <DismissKeyboardView
-        containerStyles={{ backgroundColor: 'rgb(50,72,105)' }}
-      >
+      <DismissKeyboardView containerStyles={{ backgroundColor: 'white' }}>
         <KeyboardAvoidingView style={styles.container} behavior="padding">
           <Text>{strings.WELCOME}</Text>
           <Image
@@ -135,8 +102,6 @@ class LoginScreen extends Component<NavigationScreenProps> {
             placeholder={strings.PASSWORD_PLACEHOLDER}
           />
           <Button label={strings.LOGIN} onPress={this.handleLoginPress} />
-          {/* <Button label={'???'} onPress={this.handleMysteryPress} />
-          <Button label={'serve cat'} onPress={this.handleCatImg} /> */}
           <Button
             label={strings.FORGOT_PW}
             onPress={() =>
