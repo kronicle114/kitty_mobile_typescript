@@ -17,22 +17,27 @@
   - [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/)
 
 ## dev instructions
-**Pre-reqs** 
+
+**Pre-reqs**
+
 - Yarn 1.16.0
 - Npm 6.9.0
 - Node v10.16.0
 - Expo 2.20.2
 
 1. Clone both the server and client side of this app:
-* [Client](https://github.com/kronicle114/kitty_mobile_typescript.git) or `git clone https://github.com/kronicle114/kitty_mobile_typescript.git`
-* [Server](https://github.com/kronicle114/kitty_mobile_server.git) or `git clone https://github.com/kronicle114/kitty_mobile_server.git`
+
+- [Client](https://github.com/kronicle114/kitty_mobile_typescript.git) or `git clone https://github.com/kronicle114/kitty_mobile_typescript.git`
+- [Server](https://github.com/kronicle114/kitty_mobile_server.git) or `git clone https://github.com/kronicle114/kitty_mobile_server.git`
+
 2. `yarn install` the requirements on each of the repos
-3. Run `mongod` in a separate terminal shell. 
+3. Run `mongod` in a separate terminal shell.
 4. Make sure you have expo-cli on your device or have an ios/android emulator
 5. Open a new terminal shell and then `cd` into the server side and run `npm start`. Do the same thing for the client side (`cd` into client side & `npm start`).
-6. If successful, the app should load into expo-cli. 
+6. If successful, the app should load into expo-cli.
 
-## Basics
+# Basics
+
 ### Frontend setup
 
 - [x] react-native basics
@@ -121,3 +126,26 @@ Argument of type '{ contentComponent: ComponentType<Pick<NavigationInjectedProps
     Type 'ComponentType<Pick<NavigationInjectedProps<NavigationParams>, never> & { onRef?: ((instance: BurgerMenu | null) => void) | RefObject<BurgerMenu> | null | undefined; }>' is not assignable to type 'ComponentClass<DrawerItemsProps, any> | FunctionComponent<DrawerItemsProps> | undefined'.
       Type 'ComponentClass<Pick<NavigationInjectedProps<NavigationParams>, never> & { onRef?: ((instance: BurgerMenu | null) => void) | RefObject<BurgerMenu> | null | undefined; }, any>' is not assignable to type 'ComponentClass<DrawerItemsProps, any> | FunctionComponent<DrawerItemsProps> | undefined'.
 ```
+
+- 14 jul 19 || silent network error when trying to connect be db to fe async calls. And then also a bunch of other stack errors. Fixed by making sure that the DEVICE_IP is the same as the expo-cli
+
+**Steps to reproduce:**
+
+1. Make sure you have a working backend and that testing it on POSTMAN works for each endpoint
+2. Run both the server and client app on your machine.
+3. Initiate the async call by performing the event/action. In this case, clicking on the login button will fetch some cat data from mongodb.
+
+```bash
+  ERROR: node_modules/react-native/Libraries/vendor/core/whatwg-fetch.js:504:29 in onerror
+```
+
+**Note:** The error above will only show up if your connection is LAN and your env variables (DEVICE_IP on client) is different from your server side. Simple fix is detailed below.
+
+Tips for debugging:
+
+- Make sure that your device and computer are connected to the same wifi source
+- DEVICE_IP needs to be the same as the IP on expo
+- Machine IP needs to be whitelisted or 0.0.0.0/0 added (including current address) on the "Network Access". Please note when you add an IP to whitelist, it defaults to `/32` that needs to be ∆ed to `/0`
+- When running expo-cli via `yarn start`, choose LAN (it's faster and less messier to debug at this point).
+
+<img src="./src/assets/debug_images/expo_debug_networ_error.png" alt="error image" />
