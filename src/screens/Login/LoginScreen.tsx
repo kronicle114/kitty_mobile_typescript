@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import styles from './styles'
-import {
-  KeyboardAvoidingView,
-  StyleSheet,
-  Text,
-  Image,
-  Alert,
-} from 'react-native'
+import { KeyboardAvoidingView, Text, Image } from 'react-native'
 import Button from '../../components/Button'
 import FormTextInput from '../../components/FormTextInput'
 import DismissKeyboardView from '../../components/DismissKeyboardView'
-import colors from '../../configs/colors'
 import strings from '../../configs/strings'
 import { API_BASE_URL } from '../../../config'
 import { AsyncStorage } from 'react-native'
@@ -23,10 +16,13 @@ interface State {
 }
 
 class LoginScreen extends Component<NavigationScreenProps> {
+  // LoginScreen header is null
   static navigationOptions = {
     header: null,
   }
 
+  // create input refs to clear values
+  usernameInputRef = React.createRef<FormTextInput>()
   passwordInputRef = React.createRef<FormTextInput>()
 
   state: State = {
@@ -34,21 +30,12 @@ class LoginScreen extends Component<NavigationScreenProps> {
     password: '',
   }
 
-  componentWillMount() {
-    this.setState({
-      emailAddress: '',
-      password: '',
-    })
-  }
-
   handleUsernameChange = (username: string) => {
     this.setState({ username: username })
-    // console.log('meep', username)
   }
 
   handlePasswordChange = (password: string) => {
     this.setState({ password: password })
-    // console.log('pw meep', password)
   }
 
   handleEmailSubmitPress = () => {
@@ -57,20 +44,20 @@ class LoginScreen extends Component<NavigationScreenProps> {
     }
   }
 
-  // testDBIsWorking = () => {
-  //   console.log('api_base_url', API_BASE_URL)
-  //   async function hitMyApiPls() {
-  //     try {
-  //       let response = await fetch(`${API_BASE_URL}/api/cats`)
-  //       let responseJson = await response.json()
-  //       Alert.alert(responseJson)
-  //       return responseJson
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  //   hitMyApiPls()
-  // }
+  testDBIsWorking = () => {
+    console.log('api_base_url', API_BASE_URL)
+    async function hitMyApiPls() {
+      try {
+        let response = await fetch(`${API_BASE_URL}/api/cats`)
+        let responseJson = await response.json()
+        // Alert.alert(responseJson)
+        return responseJson
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    hitMyApiPls()
+  }
 
   loginUser = async () => {
     let { username, password } = this.state
@@ -91,14 +78,20 @@ class LoginScreen extends Component<NavigationScreenProps> {
       return console.error('something happened', response)
     }
 
+    console.log('please just work')
+
+    // if response is ok then set authToken to AsyncStorage & clear the input fields
     try {
       const { authToken } = await response.json()
       await AsyncStorage.setItem('authToken', authToken)
-      const asyncstorageGetAuth = await AsyncStorage.getItem('authToken')
-      console.log('asyncstorageGetAuth', asyncstorageGetAuth)
       return authToken
     } catch (err) {
       throw err
+    } finally {
+      this.setState({
+        username: '',
+        password: '',
+      })
     }
   }
 
@@ -118,13 +111,14 @@ class LoginScreen extends Component<NavigationScreenProps> {
             value={this.state.username}
             onChangeText={this.handleUsernameChange}
             placeholder={strings.USERNAME_PLACEHOLDER}
-            onSubmitEditing={this.handleEmailSubmitPress}
+            onSubmitEditing={() => this.handleEmailSubmitPress()}
             autoCorrect={false}
-            keyboardType="email-address"
+            keyboardType="default"
             returnKeyType="next"
             autoCapitalize="none"
           />
           <FormTextInput
+            ref={this.passwordInputRef}
             value={this.state.password}
             onChangeText={this.handlePasswordChange}
             placeholder={strings.PASSWORD_PLACEHOLDER}
@@ -143,6 +137,7 @@ class LoginScreen extends Component<NavigationScreenProps> {
             label={strings.BACK_TO_LOGIN}
             onPress={() => this.props.navigation.navigate('HomeScreen')}
           />
+          <Button label="cats" onPress={this.testDBIsWorking} />
         </KeyboardAvoidingView>
       </DismissKeyboardView>
     )

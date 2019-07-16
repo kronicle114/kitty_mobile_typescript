@@ -5,7 +5,6 @@ import { AsyncStorage } from 'react-native'
 import { API_BASE_URL } from '../../config.js'
 import { normalizeResponseErrors } from '../utils'
 import { saveAuthToken, clearAuthToken } from '../utils/asyncstorage'
-import console = require('console')
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN'
 export const setAuthToken = authToken => ({
