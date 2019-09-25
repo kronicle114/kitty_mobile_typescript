@@ -1,9 +1,10 @@
 import styles from './styles'
 import React, { Component } from 'react'
-import { Text, View, Platform } from 'react-native'
+import { Text, View, Platform, TextInput } from 'react-native'
 import Button from '../../components/Button'
 import { Icon } from 'react-native-elements'
 import { NavigationScreenProps } from 'react-navigation'
+import { AsyncStorage } from 'react-native'
 
 // using Buttons from react-native-elements due to navigate props
 
@@ -11,7 +12,17 @@ interface Props {
   navigation: NavigationScreenProps<any, any>
 }
 
+interface State {
+  name: string
+}
+
 class HomeScreen extends Component {
+  state: State = {
+    name: 'hello'
+  }
+
+  componentDidMount = () => AsyncStorage.getItem('name').then((value) => this.setState({ 'name': value }))
+  
   static navigationOptions = ({ navigation }: NavigationScreenProps) => ({
     headerTitle: 'Home',
     headerLeft: Platform.select({
@@ -26,6 +37,12 @@ class HomeScreen extends Component {
       ),
     }),
   })
+
+  setName = (value) => {
+    AsyncStorage.setItem('name', value);
+    this.setState({ 'name': value });
+  }  
+
   render() {
     const { navigate } = this.props.navigation
     return (
@@ -33,6 +50,10 @@ class HomeScreen extends Component {
         <Text>This is the HomeScreen.</Text>
         <Button label="Details" onPress={() => navigate('DetailScreen')} />
         <Button label="Options" onPress={() => navigate('OptionsScreen')} />
+        <TextInput style = {styles.textInput} autoCapitalize = 'none' onChangeText = {this.setName}/>
+            <Text>
+              {this.state.name}
+            </Text>
       </View>
     )
   }

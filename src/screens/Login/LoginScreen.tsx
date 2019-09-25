@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './styles'
-import { KeyboardAvoidingView, Text, Image } from 'react-native'
+import { KeyboardAvoidingView, Text, Image, Alert } from 'react-native'
 import Button from '../../components/Button'
 import FormTextInput from '../../components/FormTextInput'
 import DismissKeyboardView from '../../components/DismissKeyboardView'
@@ -13,6 +13,7 @@ import { NavigationScreenProps } from 'react-navigation'
 interface State {
   username: string
   password: string
+  name: string
 }
 
 class LoginScreen extends Component<NavigationScreenProps> {
@@ -28,6 +29,7 @@ class LoginScreen extends Component<NavigationScreenProps> {
   state: State = {
     username: '',
     password: '',
+    name: ''
   }
 
   handleUsernameChange = (username: string) => {
@@ -61,11 +63,11 @@ class LoginScreen extends Component<NavigationScreenProps> {
 
   loginUser = async () => {
     let { username, password } = this.state
-    console.log('u', username)
-    console.log('p', password)
+    console.log('username: ', username)
+    console.log('password: ', password)
     const headers = {
       'Content-Type': 'application/json',
-      Accept: 'application/json', //really weird how TS autoconverts this as a variable
+      Accept: 'application/json',
     }
     const settings = {
       method: 'POST',
@@ -78,12 +80,11 @@ class LoginScreen extends Component<NavigationScreenProps> {
       return console.error('something happened', response)
     }
 
-    console.log('please just work')
-
     // if response is ok then set authToken to AsyncStorage & clear the input fields
     try {
       const { authToken } = await response.json()
       await AsyncStorage.setItem('authToken', authToken)
+      Alert.alert(`${authToken}`)
       return authToken
     } catch (err) {
       throw err
@@ -94,6 +95,8 @@ class LoginScreen extends Component<NavigationScreenProps> {
       })
     }
   }
+
+  // getAuthTokenFromLocalStorage = 
 
   render() {
     return (
@@ -139,6 +142,7 @@ class LoginScreen extends Component<NavigationScreenProps> {
           />
           <Button label="cats" onPress={this.testDBIsWorking} />
         </KeyboardAvoidingView>
+
       </DismissKeyboardView>
     )
   }

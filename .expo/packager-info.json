@@ -1,9 +1,9 @@
 {
-  "expoServerPort": null,
+  "expoServerPort": 19000,
   "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPort": 19001,
+  "packagerPid": 34643,
+  "expoServerNgrokUrl": "https://9b-frb.kronicle114.kitty.exp.direct",
+  "packagerNgrokUrl": "https://packager.9b-frb.kronicle114.kitty.exp.direct",
+  "ngrokPid": 34659
 }

@@ -45,22 +45,27 @@
 - [x] version control (git/github)
 - [x] navigation set up
 - [] loader
-- [] hook up API actions (login, register)
+- [x] hook up API actions (login, register)
+  - [] save authToken in local storage
+  - [] if authToken exists in local storage then render a protected dashboard
+  - [] render a protected dashboard if authToken exists
 
 ### Backend setup
 
 - [x] mongodb
 - [x] boiler NODE/Express
-- [x] user models & auth
+- [x] user models & auth endpoints
 - [] CRUD REST API
   - [x] start w/ POST & GET cats
   - [x] prob want a models for that
-- [] connect backend to frontend
-  - [] render data from server to client
-  - [] get a successful login using redux
+- [x] connect backend to frontend
+  - [x] render data from server to client
+  - [x] get a successful auth login using `createSwitchNavigator`  => [AuthFlow Docs](https://reactnavigation.org/docs/en/auth-flow.html#implement-our-authentication-loading-screen)
+- [] better front-end 
 - [] deploy ios
 - [] props & state
 - [] redux
+- [] socket chat
 
 ### Testing
 
